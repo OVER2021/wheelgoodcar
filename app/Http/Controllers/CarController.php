@@ -28,6 +28,10 @@ class CarController extends Controller
 
         $data = $response->json()[0] ?? null;
 
+        if (!$data) {
+            return back()->withErrors(['kenteken' => 'Kenteken niet gevonden.']);
+        }
+
         return view('aanbieder.cars.step2', [
             'kenteken' => $kenteken,
             'data' => $data,
@@ -74,6 +78,7 @@ class CarController extends Controller
             'views'           => 0,
         ]);
 
+        return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol toegevoegd.');
     }
 
     public function show(Car $car)
@@ -139,5 +144,6 @@ class CarController extends Controller
             'image'           => $image,
         ]);
 
+        return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol bijgewerkt.');
     }
 }
