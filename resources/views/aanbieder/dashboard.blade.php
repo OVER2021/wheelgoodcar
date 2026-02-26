@@ -31,15 +31,19 @@
                                     <th class="p-2 text-left">Merk</th>
                                     <th class="p-2 text-left">Model</th>
                                     <th class="p-2 text-left">Prijs</th>
+                                    <th class="p-2 text-left">Gemaakt</th>
                                     <th class="p-2 text-left">Acties</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach(auth()->user()->cars as $car)
+                                @foreach(auth()->user()->cars->sortByDesc('created_at') as $car)
                                     <tr class="border-t">
                                         <td class="p-2">{{ $car->merk }}</td>
                                         <td class="p-2">{{ $car->model }}</td>
                                         <td class="p-2">€ {{ number_format($car->prijs) }}</td>
+                                        <td class="p-2">
+                                            {{ \Carbon\Carbon::parse($car->created_at)->diffForHumans() }}
+                                        </td>
                                         <td class="p-2">
                                             <a href="{{ route('cars.edit', $car) }}" class="text-blue-600 hover:underline">
                                                 Bewerken
