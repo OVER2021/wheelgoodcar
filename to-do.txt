@@ -1,0 +1,26 @@
+B1 Als aanbieder wil ik dat, na het invullen van mijn kenteken, de info over mijn auto alvast wordt klaargezet vanuit de RDW API, zodat ik niet alles zelf hoef in te vullen.
+
+B4 Als beheerder wil ik van iedere tag zien hoevaak die gebruikt wordt (uitgesplitst naar wel / niet verkochte auto's), zodat ik weet wat populaire eigenschappen zijn.
+
+B5 Als beheerder wil ik een lijst zien van de meest opvallende aanbieders, gezien in de autohandel soms schimmige figuren werken, zodat ik deze kan reviewen.
+ > Een aanbieder wordt als opvallend gemarkeerd wanneer enkele van de volgende voorwaarden actief zijn;
+    Geen telefoonnummer ingevuld.
+    Auto('s) in aanbieding met hoge leeftijd maar lage kilometerstand (duidt op sjoemelen).
+    Meer dan 3 auto's op de dag van toevoegen direct weer als verkocht aangemerkt, waarbij vraagprijs boven 10.000 (duidt op witwassen).
+    Enkel auto's met vraagprijs onder 1000 (te mooi om waar te zijn).
+    Geen tags in gebruik (weinig moeite genomen voor de aanbieding).
+    Al een jaar geen nieuwe auto's aangeboden.
+ > Deze userstory moet in een externe app (evt. native) gerealiseerd worden
+
+ B6 Als beheerder wil ik een dashboard waarop in realtime met grafieken data over het aanbod is te zien, zodat ik dit altijd kan tonen op een scherm in het hoofdkantoor.
+ > Moet er fullscreen goed uitzien.
+ > Minstens iedere 10 seconden data verversen.
+ > Minstens gebruik van progressbar, liefst van ook andere grafieken.
+ > Data te tonen:
+    Aantal auto's aangeboden
+    Aantal verkocht
+    Aantal vandaag aangeboden
+    Aantal aanbieders
+    Aantal views vandaag
+    Gemiddeld aantal auto's per aanbieder
+ > Deze userstory moet in een externe app (evt. native) gerealiseerd worden

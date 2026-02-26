@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    margin: 0;
+    background: white;
+    overflow-x: hidden;
+}
+
+input,
+textarea,
+select {
+    border: 2px solid #fbbf24 !important;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: 2px solid #fbbf24 !important;
+    box-shadow: none;
+    outline: none;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: none;
+}
+
+.hero-header {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.hero-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 2;
+}
+
+.hero-logo {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.hero-content-left {
+    position: absolute;
+    left: 40px;
+    bottom: 80px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero-auth-buttons {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    z-index: 3;
+    display: flex;
+    gap: 12px;
+}
+
+.hero-button {
+    padding: 16px 40px;
+    background-color: #fbbf24;
+    color: black;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 320px;
+}
+
+.hero-button-small {
+    padding: 10px 22px;
+    background-color: #fbbf24;
+    color: black;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 120px;
+}
+
+.hero-button:hover,
+.hero-button-small:hover {
+    background-color: #f59e0b;
+}
+
+.hero-welcome {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.hero-main {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/img/background/wheelgoodcarsbackground.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero-main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.hero-main > div {
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+    padding-bottom: 80px;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .car-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .car-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.car-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-body {
+    padding: 16px;
+}
+
+.car-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.car-price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.license-plate {
+    display: flex;
+    align-items: center;
+    border: 2px solid #111;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fbbf24;
+    height: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.license-nl {
+    width: 60px;
+    height: 100%;
+    background: #1e40af;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.license-input {
+    width: 280px;
+    height: 100%;
+    border: none !important;
+    outline: none;
+    background: #fbbf24;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: black;
+}
+
+.license-input::placeholder {
+    color: black;
+    opacity: 0.6;
+}
+
+.license-icon {
+    width: 64px;
+    height: 100%;
+    background: #fbbf24;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.license-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.create-plate-button {
+    background: #fbbf24;
+    color: black;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.create-plate-button:hover {
+    background: #f59e0b;
+}
+
+.license-input,
+.license-input:focus,
+.license-input:active {
+    background-color: #fbbf24 !important;
+    color: black;
+}
+
+/* Chrome / Edge / Safari autofill fix */
+.license-input:-webkit-autofill,
+.license-input:-webkit-autofill:hover,
+.license-input:-webkit-autofill:focus,
+.license-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #fbbf24 inset !important;
+    -webkit-text-fill-color: black !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+
+.input-field {
+    border: 2px solid #fbbf24;
+    border-radius: 0.5rem;
+    padding: 8px;
+    outline: none;
+    width: 250px;
+    font-size: 1rem;
+}
+.input-field:focus {
+    border-color: #f59e0b;
+}
