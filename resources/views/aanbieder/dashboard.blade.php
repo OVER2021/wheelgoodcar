@@ -42,7 +42,7 @@
                                         <td class="p-2">{{ $car->model }}</td>
                                         <td class="p-2">€ {{ number_format($car->prijs) }}</td>
                                         <td class="p-2">
-                                            {{ \Carbon\Carbon::parse($car->created_at)->diffForHumans() }}
+                                            {{ \Carbon\Carbon::parse($car->created_at)->locale('nl')->diffForHumans() }}
                                         </td>
                                         <td class="p-2">
                                             <a href="{{ route('cars.edit', $car) }}" class="text-blue-600 hover:underline">
