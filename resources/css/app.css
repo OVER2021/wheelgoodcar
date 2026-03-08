@@ -294,3 +294,91 @@ select:focus-visible {
 .input-field:focus {
     border-color: #f59e0b;
 }
+
+/*------Edit cars pagina--------*/
+
+.edit-car-wrapper {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.edit-car-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.edit-car-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.edit-car-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.edit-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-field label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.edit-input {
+    border: 2px solid #fbbf24;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.edit-input:focus {
+    border-color: #f59e0b;
+}
+
+.edit-image-preview {
+    margin-top: 10px;
+}
+
+.edit-image-preview img {
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+.edit-submit {
+    margin-top: 20px;
+}
+
+.edit-button {
+    background: #fbbf24;
+    color: black;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.edit-button:hover {
+    background: #f59e0b;
+}
+
+@media (max-width: 768px) {
+
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
