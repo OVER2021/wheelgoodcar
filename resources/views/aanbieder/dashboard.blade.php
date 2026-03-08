@@ -38,9 +38,9 @@
                             <tbody>
                                 @foreach(auth()->user()->cars->sortByDesc('created_at') as $car)
                                     <tr class="border-t">
-                                        <td class="p-2">{{ $car->merk }}</td>
+                                        <td class="p-2">{{ $car->make }}</td>
                                         <td class="p-2">{{ $car->model }}</td>
-                                        <td class="p-2">€ {{ number_format($car->prijs) }}</td>
+                                        <td class="p-2">€ {{ number_format($car->price) }}</td>
                                         <td class="p-2">
                                             {{ \Carbon\Carbon::parse($car->created_at)->locale('nl')->diffForHumans() }}
                                         </td>

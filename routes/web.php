@@ -33,7 +33,6 @@ Route::middleware(['auth', 'role:Aanbieder'])->group(function () {
     Route::get('/aanbieder/cars/create', [CarController::class, 'create'])->name('cars.create');
     Route::post('/aanbieder/cars/check-kenteken', [CarController::class, 'checkKenteken'])->name('cars.check');
     Route::post('/aanbieder/cars', [CarController::class, 'store'])->name('cars.store');
-    Route::delete('/aanbieder/cars/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
 });
 
 Route::middleware(['auth'])->group(function () {
