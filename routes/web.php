@@ -41,4 +41,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('cars/{car}', [CarController::class, 'update'])->name('cars.update');
 });
 
+Route::get('/alle-autos', [CarController::class, 'all'])->name('cars.all');
+
 require __DIR__.'/auth.php';

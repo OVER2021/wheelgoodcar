@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="mt-6">
-                        <a href="{{ route('home') }}" class="text-blue-600 hover:underline">
+                     <a href="{{ route('cars.all', ['current' => $car->id]) }}" class="text-blue-600 hover:underline">
                             ← Terug naar overzicht
                         </a>
                     </div>

@@ -146,4 +146,11 @@ class CarController extends Controller
 
         return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol bijgewerkt.');
     }
+
+    public function all()
+{
+    $cars = \App\Models\Car::oldest()->get();
+
+    return view('cars.all', compact('cars'));
+}
 }

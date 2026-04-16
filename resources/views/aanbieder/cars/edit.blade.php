@@ -1,4 +1,5 @@
 <x-app-layout>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="edit-car-wrapper">
         <div class="edit-car-header">
             <h2 class="edit-car-title">
@@ -105,5 +106,8 @@
                 </div>
             </div>
         </form>
+        <div id="floating-image">
+    <img src="/img/logo/cd65e5ea-cfc3-411f-9c42-3a2ee1233d7c.png" alt="Edit indicator">
+</div>
     </div>
 </x-app-layout>
