@@ -621,15 +621,16 @@ select:focus-visible {
 
 .all-cars-button {
     display: inline-block;
-    background: #111;
-    color: white;
+    background: white;
+    color: black;
     padding: 14px 30px;
     font-weight: 700;
     border-radius: 8px;
 }
 
 .all-cars-button:hover {
-    background: #333;
+    background: #111;
+    color: white;
 }
 
 /* SLIDE ANIMATIONS */
@@ -697,6 +698,280 @@ select:focus-visible {
     pointer-events: all;
 }
 
+.car-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.car-list-item {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    align-items: center;
+    padding: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.car-list-image img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.car-list-info {
+    padding: 0 20px;
+}
+
+.car-list-info h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.car-list-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.car-list-price {
+    text-align: right;
+}
+
+.car-list-price h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.car-list-button {
+    display: inline-block;
+    background: #fbbf24;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.car-list-button:hover {
+    background: #f59e0b;
+}
+
+.car-list {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*------------------------Edit pagina---------------------*/
+.oil-drip {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 100px;
+    background: black;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: drip 3s infinite ease-in;
+}
+
+.oil-drip::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+}
+
+@keyframes drip {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+}
+.edit-car-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111 0%, #1f2937 100%);
+    padding: 40px 20px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+}
+
+.dashboard-subtitle {
+    color: #9ca3af;
+    margin-top: 6px;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.car-count {
+    background: #fbbf24;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.car-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.car-table thead {
+    background: #f9fafb;
+}
+
+.car-table th {
+    text-align: left;
+    padding: 14px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.car-table td {
+    padding: 16px 14px;
+    border-top: 1px solid #eee;
+}
+
+.car-name {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.price {
+    font-weight: 700;
+    color: #111;
+}
+
+.date {
+    color: #6b7280;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: #fbbf24;
+    color: black;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #f59e0b;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-edit {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.btn-edit:hover {
+    text-decoration: underline;
+}
+
+.btn-delete {
+    color: #dc2626;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
 /*-------------Responsive @media-------------------*/
 
 @media (max-width: 768px) {

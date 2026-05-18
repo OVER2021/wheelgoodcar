@@ -1,60 +1,76 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                aanbieder pagina
-            </h2>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button
-                    type="submit"
-                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-semibold transition">
-                    Uitloggen
-                </button>
-            </form>
-        </div>
-        <a href="{{ route('cars.create') }}"
-           class="bg-yellow-400 hover:bg-yellow-500 px-6 py-3 rounded font-bold inline-block">
-            Auto toevoegen
-        </a>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-container">
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-                Welkom {{ auth()->user()->name }}<br>
-                <div class="bg-white rounded p-6">
-                    <h3 class="text-lg font-semibold mb-4">Mijn auto’s</h3>
+            <div class="dashboard-header">
+                <div>
+                    <h1 class="dashboard-title">Dashboard</h1>
+                    <p class="dashboard-subtitle">Welkom {{ auth()->user()->name }}</p>
+                </div>
 
-                    @if(auth()->user()->cars->count())
-                        <table class="min-w-full border">
-                            <thead class="bg-gray-100">
+                <div class="dashboard-actions">
+                    <a href="{{ route('cars.create') }}" class="btn-primary">
+                        + Auto toevoegen
+                    </a>
+
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn-danger">
+                            Uitloggen
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2>Mijn auto’s</h2>
+                    <span class="car-count">
+                        {{ auth()->user()->cars->count() }} auto's
+                    </span>
+                </div>
+
+                @if(auth()->user()->cars->count())
+                    <div class="table-wrapper">
+                        <table class="car-table">
+                            <thead>
                                 <tr>
-                                    <th class="p-2 text-left">Merk</th>
-                                    <th class="p-2 text-left">Model</th>
-                                    <th class="p-2 text-left">Prijs</th>
-                                    <th class="p-2 text-left">Gemaakt</th>
-                                    <th class="p-2 text-left">Acties</th>
+                                    <th>Auto</th>
+                                    <th>Prijs</th>
+                                    <th>Geplaatst</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach(auth()->user()->cars->sortByDesc('created_at') as $car)
-                                    <tr class="border-t">
-                                        <td class="p-2">{{ $car->make }}</td>
-                                        <td class="p-2">{{ $car->model }}</td>
-                                        <td class="p-2">€ {{ number_format($car->price) }}</td>
-                                        <td class="p-2">
+                                    <tr>
+                                        <td>
+                                            <div class="car-info">
+                                                <div class="car-name">
+                                                    {{ $car->make }} {{ $car->model }}
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="price">
+                                            € {{ number_format($car->price) }}
+                                        </td>
+
+                                        <td class="date">
                                             {{ \Carbon\Carbon::parse($car->created_at)->locale('nl')->diffForHumans() }}
                                         </td>
-                                        <td class="p-2">
-                                            <a href="{{ route('cars.edit', $car) }}" class="text-blue-600 hover:underline">
+
+                                        <td class="actions">
+                                            <a href="{{ route('cars.edit', $car) }}" class="btn-edit">
                                                 Bewerken
-                                            </a> | 
+                                            </a>
+
                                             <form method="POST"
                                                   action="{{ route('cars.destroy', $car) }}"
-                                                  onsubmit="return confirm('Weet je zeker?')"
-                                                  style="display:inline;">
+                                                  onsubmit="return confirm('Weet je zeker?')">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="text-red-600 hover:underline">
+                                                <button class="btn-delete">
                                                     Verwijder
                                                 </button>
                                             </form>
@@ -63,13 +79,18 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    @else
-                        <p class="text-gray-500">
-                            Je hebt nog geen auto’s geplaatst.
-                        </p>
-                    @endif
-                </div>
+                    </div>
+                @else
+                    <div class="empty-state">
+                        <h3>Geen auto's gevonden</h3>
+                        <p>Je hebt nog geen auto's geplaatst.</p>
+                        <a href="{{ route('cars.create') }}" class="btn-primary">
+                            Eerste auto toevoegen
+                        </a>
+                    </div>
+                @endif
             </div>
+
         </div>
     </div>
 </x-app-layout>

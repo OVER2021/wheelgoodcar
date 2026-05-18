@@ -35,19 +35,32 @@
     </a>
 </div>
 
-        <div class="car-grid mt-10">
-                @foreach($cars as $car)
-                <div class="car-card">
-            <img src="{{ $car->image ? asset('storage/'.$car->image) : asset('img/cars/default.jpg') }}">
+  <div class="car-list mt-10">
+    @foreach($cars as $car)
+        <div class="car-list-item">
 
-            <div class="car-body">
-                <h1 class="car-title">
-                    {{ $car->make }} {{ $car->model }}
-                </h1>
+            <div class="car-list-image">
+                <img src="{{ $car->image ? asset('storage/'.$car->image) : asset('img/cars/default.jpg') }}">
             </div>
+
+            <div class="car-list-info">
+                <h2>{{ $car->make }} {{ $car->model }}</h2>
+
+                <p>Bouwjaar: {{ $car->year ?? 'Onbekend' }}</p>
+                <p>Kilometerstand: {{ $car->mileage ?? 'Onbekend' }} km</p>
+            </div>
+
+            <div class="car-list-price">
+                <h3>€{{ number_format($car->price ?? 0, 0, ',', '.') }}</h3>
+
+                <a href="#" class="car-list-button">
+                    Bekijk →
+                </a>
+            </div>
+
         </div>
-            @endforeach
-        </div>
+    @endforeach
+</div>
     </div>
 </main>
     </div>
