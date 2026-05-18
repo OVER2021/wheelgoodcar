@@ -16,8 +16,6 @@
 
             @auth
                 <div class="hero-content-left">
-                    <h1 class="hero-welcome">Welkom, {{ Auth::user()->name }}</h1>
-
                     @if(auth()->user()->isBeheerder())
                         <a href="{{ route('admin.dashboard') }}" class="hero-button">Admin dashboard</a>
                     @elseif(auth()->user()->isAanbieder())
@@ -53,7 +51,7 @@
             <div class="car-list-price">
                 <h3>€{{ number_format($car->price ?? 0, 0, ',', '.') }}</h3>
 
-                <a href="#" class="car-list-button">
+                <a href="{{ route('cars.show', $car) }}" class="car-list-button">
                     Bekijk →
                 </a>
             </div>

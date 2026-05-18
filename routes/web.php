@@ -50,4 +50,6 @@ Route::get('/', function () {
     return view('home', compact('cars'));
 })->name('home');
 
+Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
+
 require __DIR__.'/auth.php';

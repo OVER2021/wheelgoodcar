@@ -622,16 +622,11 @@ select:focus-visible {
 
 .all-cars-button {
     display: inline-block;
-    background: white;
+    background: #fbbf24;
     color: black;
     padding: 14px 30px;
     font-weight: 700;
     border-radius: 8px;
-}
-
-.all-cars-button:hover {
-    background: #111;
-    color: white;
 }
 
 /* SLIDE ANIMATIONS */
@@ -1099,6 +1094,55 @@ select:focus-visible {
 .dashboard-card,
 .offer-item {
     box-shadow: none !important;
+}
+
+/*-------------Show details------------------------*/
+
+.car-show-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.car-show-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 40px;
+}
+
+.car-show-image img {
+    width: 450px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.car-show-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.car-show-price {
+    font-size: 26px;
+    font-weight: 700;
+    color: green;
+    margin-bottom: 20px;
+}
+
+.car-show-details p {
+    margin-bottom: 6px;
+}
+
+.car-back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: blue;
+    text-decoration: none;
 }
 
 /*-------------Responsive @media-------------------*/
