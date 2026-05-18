@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CarController;
+use App\Models\Car;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -42,5 +43,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/alle-autos', [CarController::class, 'all'])->name('cars.all');
+
+Route::get('/', function () {
+    $cars = Car::latest()->get();
+
+    return view('home', compact('cars'));
+})->name('home');
 
 require __DIR__.'/auth.php';

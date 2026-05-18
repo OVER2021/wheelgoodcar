@@ -858,8 +858,9 @@ select:focus-visible {
 }
 
 .dashboard-subtitle {
-    color: #9ca3af;
+    color: black;
     margin-top: 6px;
+    font-weight: 800;
 }
 
 .dashboard-actions {

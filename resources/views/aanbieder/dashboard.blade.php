@@ -21,6 +21,10 @@
                 </div>
             </div>
 
+            <a href="{{ route('home') }}" class="btn-secondary">
+                ← Terug naar home
+            </a>
+
             <div class="dashboard-card">
                 <div class="card-header">
                     <h2>Mijn aanbod:</h2>
