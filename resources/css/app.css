@@ -144,7 +144,7 @@ select:focus-visible {
 .hero-main > div {
     position: relative;
     z-index: 2;
-    padding-top: 100px;
+    padding-top: 10px;
     padding-bottom: 80px;
 }
 
@@ -616,6 +616,7 @@ select:focus-visible {
 
 .all-cars-button-wrapper {
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
@@ -699,71 +700,96 @@ select:focus-visible {
 }
 
 .car-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-top: -30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
 }
 
 .car-list-item {
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    background: white;
-    border-radius: 12px;
+    background: rgba(17,17,17,0.92);
+
+    border-radius: 16px;
     overflow: hidden;
-    align-items: center;
-    padding: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+    transition: transform 0.25s ease;
+
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.car-list-item:hover {
+    transform: translateY(-4px);
+}
+
+.car-list-image {
+    height: 180px;
+    overflow: hidden;
 }
 
 .car-list-image img {
     width: 100%;
-    height: 130px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+
+    transition: transform 0.3s ease;
+}
+
+.car-list-item:hover .car-list-image img {
+    transform: scale(1.05);
 }
 
 .car-list-info {
-    padding: 0 20px;
+    padding: 18px;
+    color: white;
 }
 
 .car-list-info h2 {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .car-list-info p {
     font-size: 14px;
-    color: #555;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 6px;
 }
 
 .car-list-price {
-    text-align: right;
+    padding: 0 18px 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .car-list-price h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fbbf24;
 }
 
 .car-list-button {
-    display: inline-block;
     background: #fbbf24;
     color: black;
-    padding: 10px 20px;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
     font-weight: 700;
-    border-radius: 6px;
+
+    text-decoration: none;
+
+    transition: background 0.2s ease;
 }
 
 .car-list-button:hover {
     background: #f59e0b;
-}
-
-.car-list {
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 /*------------------------Edit pagina---------------------*/
@@ -972,6 +998,108 @@ select:focus-visible {
     color: #6b7280;
     margin-bottom: 20px;
 }
+
+/*-------------Dashboard 'Mijn aanbod'------------*/
+
+.offer-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-item {
+    background: white;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ececec;
+    transition: all 0.2s ease;
+    gap: 30px;
+}
+
+.offer-left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex: 1;
+    min-width: 0;
+}
+
+.offer-image img {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.offer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.offer-license {
+    font-size: 15px;
+    font-weight: 700;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.offer-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.offer-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    width: 180px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.offer-actions {
+    display: flex;
+    gap: 12px;
+    width: 290px;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.offer-edit {
+    background: #fbbf24;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.offer-delete {
+    background: #111;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.dashboard-wrapper {
+    min-height: 100vh;
+    background: #ffffff;
+}
+.dashboard-card,
+.offer-item {
+    box-shadow: none !important;
+}
+
 /*-------------Responsive @media-------------------*/
 
 @media (max-width: 768px) {
@@ -1018,6 +1146,32 @@ select:focus-visible {
     }
 
     .filter-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .offer-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .offer-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 1024px) {
+    .car-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .car-list {
         grid-template-columns: 1fr;
     }
 }

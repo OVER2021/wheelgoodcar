@@ -4,7 +4,6 @@
 
             <div class="dashboard-header">
                 <div>
-                    <h1 class="dashboard-title">Dashboard</h1>
                     <p class="dashboard-subtitle">Welkom {{ auth()->user()->name }}</p>
                 </div>
 
@@ -24,62 +23,81 @@
 
             <div class="dashboard-card">
                 <div class="card-header">
-                    <h2>Mijn auto’s</h2>
-                    <span class="car-count">
-                        {{ auth()->user()->cars->count() }} auto's
-                    </span>
+                    <h2>Mijn aanbod:</h2>
                 </div>
 
                 @if(auth()->user()->cars->count())
-                    <div class="table-wrapper">
-                        <table class="car-table">
-                            <thead>
-                                <tr>
-                                    <th>Auto</th>
-                                    <th>Prijs</th>
-                                    <th>Geplaatst</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach(auth()->user()->cars->sortByDesc('created_at') as $car)
-                                    <tr>
-                                        <td>
-                                            <div class="car-info">
-                                                <div class="car-name">
-                                                    {{ $car->make }} {{ $car->model }}
-                                                </div>
+                    @if(auth()->user()->cars->count())
+
+                        <div class="offer-list">
+
+                            @foreach(auth()->user()->cars->sortByDesc('created_at') as $car)
+
+                                <div class="offer-item">
+
+                                    <div class="offer-left">
+
+                                        <div class="offer-image">
+                                            <img src="{{ $car->image ? asset('storage/'.$car->image) : asset('img/cars/default.jpg') }}">
+                                        </div>
+
+                                        <div class="offer-details">
+
+                                            <div class="offer-license">
+                                                {{ $car->license_plate ?? 'ONBEKEND' }}
                                             </div>
-                                        </td>
 
-                                        <td class="price">
-                                            € {{ number_format($car->price) }}
-                                        </td>
+                                            <div class="offer-title">
+                                                {{ $car->make }} {{ $car->model }} {{ $car->year }}
+                                            </div>
 
-                                        <td class="date">
-                                            {{ \Carbon\Carbon::parse($car->created_at)->locale('nl')->diffForHumans() }}
-                                        </td>
+                                        </div>
 
-                                        <td class="actions">
-                                            <a href="{{ route('cars.edit', $car) }}" class="btn-edit">
-                                                Bewerken
-                                            </a>
+                                    </div>
 
-                                            <form method="POST"
-                                                  action="{{ route('cars.destroy', $car) }}"
-                                                  onsubmit="return confirm('Weet je zeker?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn-delete">
-                                                    Verwijder
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                                    <div class="offer-price">
+                                        €{{ number_format($car->price, 0, ',', '.') }}
+                                    </div>
+
+                                    <div class="offer-actions">
+
+                                        <a href="{{ route('cars.edit', $car) }}" class="offer-edit">
+                                            Bewerken
+                                        </a>
+
+                                        <form method="POST"
+                                            action="{{ route('cars.destroy', $car) }}"
+                                            onsubmit="return confirm('Weet je zeker?')">
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class="offer-delete">
+                                                Verwijderen
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+                            @endforeach
+
+                        </div>
+
+                    @else
+
+                        <div class="empty-state">
+                            <h3>Geen auto's gevonden</h3>
+                            <p>Je hebt nog geen auto's geplaatst.</p>
+
+                            <a href="{{ route('cars.create') }}" class="btn-primary">
+                                Eerste auto toevoegen
+                            </a>
+                        </div>
+
+                    @endif
                 @else
                     <div class="empty-state">
                         <h3>Geen auto's gevonden</h3>
