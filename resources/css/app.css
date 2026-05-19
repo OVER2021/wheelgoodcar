@@ -580,9 +580,9 @@ select:focus-visible {
 
 .bottom-left {
     position: absolute;
-    bottom: 20px;
-    left: 100px;
-    z-index: 5;
+    top: 20px;
+    left: 40px;
+    z-index: 20;
 }
 
 .corner-image {

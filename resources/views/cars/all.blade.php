@@ -4,11 +4,15 @@
 
     <div class="all-cars-bg"></div>
 
+    <div class="bottom-left">
+        <a href="{{ route('home') }}" class="back-button">← Terug</a>
+    </div>
+
     <div 
     class="all-cars-container"
     id="allCarsApp"
     data-cars='@json($cars)'
-    data-current="{{ request('current') }}"
+    data-current="{{ $current ?? '' }}"
 >
 
         <button id="prevCar" class="arrow left">‹</button>
@@ -22,10 +26,6 @@
 
         <img id="cornerLogo" src="{{ asset('img/logo/rL5qB.png') }}" class="corner-image">
 
-    </div>
-
-    <div class="bottom-left">
-        <a href="{{ route('home') }}" class="back-button">← Terug</a>
     </div>
 
 </div>

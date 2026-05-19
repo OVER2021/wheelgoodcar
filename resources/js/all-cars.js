@@ -32,12 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Deuren: ${car.doors ?? '-'}</p>
             <p>Stoelen: ${car.seats ?? '-'}</p>
             <p>Kenteken: ${car.license_plate}</p>
-
-            <a href="javascript:void(0)"
-               onclick="goToCar(${car.id})"
-               class="hero-button-small mt-4 inline-block">
-                Show car
-            </a>
         `;
     }
 

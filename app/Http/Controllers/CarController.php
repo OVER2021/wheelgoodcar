@@ -85,7 +85,12 @@ class CarController extends Controller
     {
         $car->increment('views');
 
-        return view('cars.show', compact('car'));
+        $cars = Car::oldest()->get();
+
+        return view('cars.all', [
+            'cars' => $cars,
+            'current' => $car->id,
+        ]);
     }
 
     public function destroy(Car $car)
