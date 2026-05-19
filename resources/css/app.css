@@ -1145,6 +1145,40 @@ select:focus-visible {
     text-decoration: none;
 }
 
+/*----------------------------------------------------*/
+
+.sold-badge {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.car-list-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.sold-ribbon {
+    position: absolute;
+    top: 22px;
+    right: -55px;
+    transform: rotate(35deg);
+
+    background: #dc2626;
+    color: white;
+
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1px;
+
+    padding: 10px 70px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
 /*-------------Responsive @media-------------------*/
 
 @media (max-width: 768px) {

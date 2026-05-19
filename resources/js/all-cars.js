@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Deuren: ${car.doors ?? '-'}</p>
             <p>Stoelen: ${car.seats ?? '-'}</p>
             <p>Kenteken: ${car.license_plate}</p>
+            ${car.sold_at ? `<p style="color:red; font-weight:bold;">VERKOCHT</p>` : ''}
         `;
     }
 

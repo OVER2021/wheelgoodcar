@@ -40,4 +40,9 @@ class Car extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function isSold()
+    {
+        return $this->sold_at !== null;
+    }
 }

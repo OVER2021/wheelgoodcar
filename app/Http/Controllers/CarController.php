@@ -152,9 +152,23 @@ class CarController extends Controller
         return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol bijgewerkt.');
     }
 
+    public function toggleSold(Car $car)
+    {
+        abort_unless($car->user_id === auth()->id(), 403);
+
+        $car->update([
+            'sold_at' => $car->sold_at ? null : now(),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'sold' => $car->sold_at !== null,
+        ]);
+    }
+
     public function all()
 {
-    $cars = \App\Models\Car::oldest()->get();
+    $cars = \App\Models\Car::whereNull('sold_at')->oldest()->get();
 
     return view('cars.all', compact('cars'));
 }

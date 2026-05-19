@@ -37,6 +37,12 @@
     @foreach($cars as $car)
         <div class="car-list-item">
 
+        @if($car->isSold())
+            <div class="sold-ribbon">
+                VERKOCHT
+            </div>
+        @endif
+
             <div class="car-list-image">
                 <img src="{{ $car->image ? asset('storage/'.$car->image) : asset('img/cars/default.jpg') }}">
             </div>
@@ -44,7 +50,13 @@
             <div class="car-list-info">
                 <h2>{{ $car->make }} {{ $car->model }}</h2>
 
-                <p>Bouwjaar: {{ $car->year ?? 'Onbekend' }}</p>
+                @if($car->isSold())
+                    <span style="color:red; font-weight:bold;">
+                        VERKOCHT
+                    </span>
+                @endif
+
+                <p>Bouwjaar: {{ $car->production_year ?? 'Onbekend' }}</p>
                 <p>Kilometerstand: {{ $car->mileage ?? 'Onbekend' }} km</p>
             </div>
 

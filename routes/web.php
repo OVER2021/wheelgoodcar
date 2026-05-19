@@ -29,6 +29,12 @@ Route::middleware(['auth', 'role:Beheerder'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:Aanbieder'])->group(function () {
+
+    Route::get('/aanbieder-dashboard', fn () => view('aanbieder.dashboard'))->name('aanbieder.dashboard');
+
+    Route::patch('/cars/{car}/toggle-sold', [CarController::class, 'toggleSold'])
+        ->name('cars.toggleSold');
+
     Route::get('/aanbieder-dashboard', fn () => view('aanbieder.dashboard'))->name('aanbieder.dashboard');
 
     Route::get('/aanbieder/cars/create', [CarController::class, 'create'])->name('cars.create');
@@ -43,12 +49,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/alle-autos', [CarController::class, 'all'])->name('cars.all');
-
-Route::get('/', function () {
-    $cars = Car::latest()->get();
-
-    return view('home', compact('cars'));
-})->name('home');
 
 Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
 

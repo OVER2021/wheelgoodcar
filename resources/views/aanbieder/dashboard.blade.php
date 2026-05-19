@@ -52,8 +52,15 @@
                                             </div>
 
                                             <div class="offer-title">
-                                                {{ $car->make }} {{ $car->model }} {{ $car->year }}
+                                                {{ $car->make }} {{ $car->model }} {{ $car->production_year }}
                                             </div>
+
+                                            <p id="status-{{ $car->id }}" style="font-weight:bold; margin-top:5px;">
+                                                Status:
+                                                <span style="color: {{ $car->isSold() ? 'red' : 'green' }}">
+                                                    {{ $car->isSold() ? 'Verkocht' : 'Te koop' }}
+                                                </span>
+                                            </p>
 
                                         </div>
 
@@ -64,6 +71,16 @@
                                     </div>
 
                                     <div class="offer-actions">
+
+                                    <button
+                                        type="button"
+                                        onclick="toggleSold({{ $car->id }})"
+                                        class="offer-edit"
+                                        id="button-{{ $car->id }}"
+                                        style="font-size: 14px;"
+                                    >
+                                        {{ $car->isSold() ? 'Te koop' : 'Verkocht' }}
+                                    </button>
 
                                         <a href="{{ route('cars.edit', $car) }}" class="offer-edit">
                                             Bewerken
@@ -115,4 +132,5 @@
 
         </div>
     </div>
+    @vite('resources/js/dashboard.js')
 </x-app-layout>
