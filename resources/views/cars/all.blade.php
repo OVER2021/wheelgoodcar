@@ -18,7 +18,9 @@
         <button id="prevCar" class="arrow left">‹</button>
         <button id="nextCar" class="arrow right">›</button>
 
-        <div class="car-info" id="carInfo"></div>
+        <div class="car-info" id="carInfo">
+
+        </div>
 
         <div class="car-image-wrapper">
             <img id="carImage">

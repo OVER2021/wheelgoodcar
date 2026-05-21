@@ -1179,6 +1179,28 @@ select:focus-visible {
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
+/*------------- SOLD BAR ALL CARS ----------------*/
+
+.sold-bar {
+    margin-top: 18px;
+
+    width: 100%;
+
+    background: #dc2626;
+    color: white;
+
+    text-align: center;
+
+    padding: 12px 0;
+
+    border-radius: 8px;
+
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+}
+
 /*-------------Responsive @media-------------------*/
 
 @media (max-width: 768px) {
