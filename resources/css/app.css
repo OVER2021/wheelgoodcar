@@ -715,10 +715,6 @@ select:focus-visible {
     border: 1px solid rgba(255,255,255,0.06);
 }
 
-.car-list-item:hover {
-    transform: translateY(-4px);
-}
-
 .car-list-image {
     height: 180px;
     overflow: hidden;
@@ -730,10 +726,6 @@ select:focus-visible {
     object-fit: cover;
 
     transition: transform 0.3s ease;
-}
-
-.car-list-item:hover .car-list-image img {
-    transform: scale(1.05);
 }
 
 .car-list-info {
