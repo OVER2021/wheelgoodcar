@@ -34,6 +34,9 @@
                   class="w-full max-w-xl bg-white p-10 rounded-2xl space-y-6">
 
                 @csrf
+                @foreach($tags as $tag)
+    <input type="hidden" name="tags[]" value="{{ $tag }}">
+@endforeach
 
                 <h1 class="text-3xl font-bold text-center">
                     Auto plaatsen

@@ -36,13 +36,13 @@ class Car extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
-
     public function isSold()
     {
         return $this->sold_at !== null;
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -81,6 +81,22 @@
                         </div>
                     </div>
 
+                   @foreach($tags as $tag)
+    <label
+        class="tag-checkbox
+        {{ $car->tags->contains($tag->id) ? 'tag-active' : '' }}"
+    >
+        <input
+            type="checkbox"
+            name="tags[]"
+            value="{{ $tag->id }}"
+            @checked($car->tags->contains($tag->id))
+        >
+
+        <span>{{ $tag->name }}</span>
+    </label>
+@endforeach
+
                     <div>
                         <x-input-label for="image" :value="__('Afbeelding')" />
                         <x-text-input id="image" class="edit-input" type="file" name="image" />

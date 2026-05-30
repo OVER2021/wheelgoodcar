@@ -715,6 +715,17 @@ select:focus-visible {
     border: 1px solid rgba(255,255,255,0.06);
 }
 
+.all-cars-page .car-list-info {
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.all-cars-page .car-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .car-list-image {
     height: 180px;
     overflow: hidden;
@@ -1191,6 +1202,38 @@ select:focus-visible {
     font-size: 16px;
     letter-spacing: 1px;
 
+}
+
+.car-tag {
+    background: #fbbf24;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tag-checkbox {
+    background: white;
+    border: 2px solid #fbbf24;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.tag-checkbox input {
+    display: none;
+}
+
+.tag-checkbox:has(input:checked) {
+    background: #fbbf24;
+    color: black;
+    border-color: #f59e0b;
 }
 
 /*-------------Responsive @media-------------------*/

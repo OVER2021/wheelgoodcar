@@ -58,6 +58,15 @@
 
                 <p>Bouwjaar: {{ $car->production_year ?? 'Onbekend' }}</p>
                 <p>Kilometerstand: {{ $car->mileage ?? 'Onbekend' }} km</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                    <p>Aantal tags: {{ $car->tags->count() }}</p>
+
+                    @foreach($car->tags as $tag)
+                        <span class="car-tag">
+                            {{ $tag->name }}
+                        </span>
+                    @endforeach
+                </div>
             </div>
 
             <div class="car-list-price">

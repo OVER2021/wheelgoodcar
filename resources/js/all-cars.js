@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCar(car) {
         image.src = car.image ? '/storage/' + car.image : '/img/cars/default.jpg';
 
+        const tagsHtml = car.tags
+        ? car.tags.map(tag => `
+            <span class="car-tag">
+                ${tag.name}
+            </span>
+        `).join('')
+        : '';
+
         info.innerHTML = `
             <h1>${car.make} ${car.model}</h1>
             <p>Prijs: €${car.price}</p>
@@ -32,7 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Deuren: ${car.doors ?? '-'}</p>
             <p>Stoelen: ${car.seats ?? '-'}</p>
             <p>Kenteken: ${car.license_plate}</p>
-            ${car.sold_at ? `<div class="sold-bar">VERKOCHT</div>` : ''}
+            <div class="car-tags">
+            ${tagsHtml}
+        </div>
+
+        ${car.sold_at ? `<div class="sold-bar">VERKOCHT</div>` : ''}
+
         `;
     }
 

@@ -1,6 +1,6 @@
 <x-app-layout>
 
-<div class="all-cars-page">
+<div class="all-cars-page all-cars">
 
     <div class="all-cars-bg"></div>
 

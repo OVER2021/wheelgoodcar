@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $cars = Car::latest()->get(); 
+        $cars = Car::with('tags')->latest()->get();
 
         return view('home', compact('cars'));
     }

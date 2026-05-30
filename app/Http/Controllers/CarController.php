@@ -6,12 +6,15 @@ use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Tag;
 
 class CarController extends Controller
 {
-    public function create()
+   public function create()
     {
-        return view('aanbieder.cars.create');
+        $tags = Tag::all();
+
+        return view('aanbieder.cars.create', compact('tags'));
     }
 
     public function checkKenteken(Request $request)
@@ -35,6 +38,8 @@ class CarController extends Controller
         return view('aanbieder.cars.step2', [
             'kenteken' => $kenteken,
             'data' => $data,
+            'tags' => $request->tags ?? [],
+
             'bouwjaar' => substr($data['datum_eerste_toelating'] ?? '', 0, 4),
             'kleur' => $data['eerste_kleur'] ?? null,
             'gewicht' => $data['massa_ledig_voertuig'] ?? null,
@@ -63,7 +68,7 @@ class CarController extends Controller
             ? $request->file('image')->store('cars', 'public')
             : null;
 
-        auth()->user()->cars()->create([
+        $car = auth()->user()->cars()->create([
             'license_plate'   => strtoupper(str_replace('-', '', $request->kenteken)),
             'make'            => $request->merk,
             'model'           => $request->model,
@@ -78,15 +83,18 @@ class CarController extends Controller
             'views'           => 0,
         ]);
 
-        return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol toegevoegd.');
+        $car->tags()->sync($request->tags ?? []);
+
+        return redirect()
+            ->route('aanbieder.dashboard');
     }
 
     public function show(Car $car)
     {
         $car->increment('views');
 
-        $cars = Car::oldest()->get();
-
+        $cars = Car::with('tags')->oldest()->get();
+        
         return view('cars.all', [
             'cars' => $cars,
             'current' => $car->id,
@@ -110,7 +118,9 @@ class CarController extends Controller
     {
         abort_unless($car->user_id === auth()->id(), 403);
 
-        return view('aanbieder.cars.edit', compact('car'));
+        $tags = Tag::all();
+
+        return view('aanbieder.cars.edit', compact('car', 'tags'));
     }
 
     public function update(Request $request, Car $car)
@@ -149,6 +159,8 @@ class CarController extends Controller
             'image'           => $image,
         ]);
 
+        $car->tags()->sync($request->tags ?? []);
+
         return redirect()->route('aanbieder.dashboard')->with('success', 'Auto succesvol bijgewerkt.');
     }
 
@@ -166,9 +178,12 @@ class CarController extends Controller
         ]);
     }
 
-    public function all()
+public function all()
 {
-    $cars = \App\Models\Car::whereNull('sold_at')->oldest()->get();
+    $cars = Car::with('tags')
+        ->whereNull('sold_at')
+        ->oldest()
+        ->get();
 
     return view('cars.all', compact('cars'));
 }

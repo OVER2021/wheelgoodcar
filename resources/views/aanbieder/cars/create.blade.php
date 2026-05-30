@@ -18,6 +18,15 @@
             </button>
         </div>
 
+        <div class="flex flex-wrap gap-3 mt-5">
+    @foreach($tags as $tag)
+        <label class="tag-checkbox">
+            <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
+            <span>{{ $tag->name }}</span>
+        </label>
+    @endforeach
+</div>
+
         <button type="submit" class="create-plate-button">
             Kentekenplaat aanmaken              
         </button>
