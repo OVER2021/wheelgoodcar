@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Gewicht: ${car.weight ?? '-'}</p>
             <p>Deuren: ${car.doors ?? '-'}</p>
             <p>Stoelen: ${car.seats ?? '-'}</p>
+            <p>Bekeken: ${car.views} keer</p>
             <p>Kenteken: ${car.license_plate}</p>
             <div class="car-tags">
             ${tagsHtml}
