@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
     margin: 0;
-    background: white;
+    background: url('/img/background/wheelgoodcarsbackground.png') center center / cover no-repeat fixed;
     overflow-x: hidden;
 }
 
@@ -275,8 +276,28 @@ select:focus-visible {
 /*------Edit cars pagina--------*/
 
 .edit-car-wrapper {
-    max-width: 1100px;
-    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    padding: 40px;
+}
+
+.edit-car-wrapper::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.75)
+        ),
+        url('/img/background/wheelgoodcarsbackground.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
 }
 
 .edit-car-header {
@@ -292,10 +313,101 @@ select:focus-visible {
 }
 
 .edit-car-card {
-    background: white;
+    background: rgba(17,17,17,0.88);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+    color: white;
+}
+
+.edit-input {
+    background: rgba(255,255,255,0.05);
+
+    color: white;
+
+    border: 2px solid #fbbf24;
+
     border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    padding: 14px;
+}
+
+.edit-input::placeholder {
+    color: rgba(255,255,255,.5);
+}
+
+.edit-input:focus {
+    border-color: #f59e0b;
+
+    box-shadow:
+        0 0 15px rgba(251,191,36,.35);
+}
+
+.edit-field label {
+    color: white;
+    font-weight: 700;
+}
+
+.tag-checkbox {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid #fbbf24;
+    color: white;
+    border-radius: 999px;
+    padding: 12px 18px;
+    display: inline-flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.tag-checkbox:has(input:checked) {
+    background: #fbbf24;
+    color: black;
+}
+
+.edit-car-title {
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+}
+
+.edit-car-header a {
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+.edit-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.edit-form-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-image-side {
+    position: sticky;
+    top: 30px;
+}
+
+.edit-preview-image {
+    width: 100%;
+    border-radius: 16px;
+    border: 3px solid #fbbf24;
+    object-fit: cover;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
 }
 
 .edit-grid {
@@ -1216,11 +1328,13 @@ select:focus-visible {
 .tag-checkbox {
     background: white;
     border: 2px solid #fbbf24;
+    color: black;
     border-radius: 10px;
     padding: 10px 14px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+    width: fit-content;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;

@@ -60,8 +60,6 @@
                 <p>Kilometerstand: {{ $car->mileage ?? 'Onbekend' }} km</p>
                 <p>Bekeken: {{ $car->views }} keer</p>
                 <div class="flex flex-wrap gap-2 mt-3">
-                    <p>Aantal tags: {{ $car->tags->count() }}</p>
-
                     @foreach($car->tags as $tag)
                         <span class="car-tag">
                             {{ $tag->name }}
