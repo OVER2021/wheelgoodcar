@@ -1,5 +1,4 @@
 import './bootstrap';
-import './edit-car';
 
 import Alpine from 'alpinejs';
 
