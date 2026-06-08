@@ -1,3 +1,2 @@
 Nog te maken:
--In de show blade moet dat balkje dat je naar beneden kan scrollen weg
 -Maak dat de progessie bar te zien is bij stap 2 pagina

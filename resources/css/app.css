@@ -572,10 +572,11 @@ select:focus-visible {
 }
 
 .all-cars-page {
-    position: relative;
-    width: 100%;
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
+    position: fixed;
+    inset: 0;
 }
 
 .all-cars-bg {
@@ -585,6 +586,13 @@ select:focus-visible {
     z-index: 0;
 }
 
+.all-cars-page {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
 .all-cars-container {
     position: relative;
     z-index: 2;

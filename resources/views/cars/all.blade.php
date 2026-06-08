@@ -13,7 +13,7 @@
     id="allCarsApp"
     data-cars='@json($cars)'
     data-current="{{ $current ?? '' }}"
->
+    >
 
         <button id="prevCar" class="arrow left">‹</button>
         <button id="nextCar" class="arrow right">›</button>
@@ -55,10 +55,12 @@
 <!-------Zelf gemaakte javascript 😏---------->
 <script>
 setTimeout(() => {
-    document
-        .getElementById('viewToast')
-        .classList
-        .add('show');
+    const toast = document.getElementById('viewToast');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 10000);
+
 }, 10000);
 </script>
 
