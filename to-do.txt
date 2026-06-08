@@ -1,2 +1,3 @@
-Maak de ontwerpen van itslearning na, gebruik ontwerp maar voeg zelf nog dingen aan toe.
-Kijk op w3schools na justify content gebruiken voor ontwerp edit
+Nog te maken:
+-In de show blade moet dat balkje dat je naar beneden kan scrollen weg
+-Maak dat de progessie bar te zien is bij stap 2 pagina

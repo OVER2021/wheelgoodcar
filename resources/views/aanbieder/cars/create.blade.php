@@ -1,4 +1,9 @@
 <x-app-layout>
+<div class="progress-wrapper">
+    <div class="progress-bar" style="width:50%">
+        Stap 1 van 2
+    </div>
+</div>
     <form method="POST" action="{{ route('cars.check') }}" class="flex flex-col items-center mt-20 gap-6">
         @csrf
 

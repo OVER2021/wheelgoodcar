@@ -873,16 +873,11 @@ select:focus-visible {
 .car-list-button {
     background: #fbbf24;
     color: black;
-
     padding: 10px 18px;
-
     border-radius: 8px;
-
     font-size: 14px;
     font-weight: 700;
-
     text-decoration: none;
-
     transition: background 0.2s ease;
 }
 
@@ -890,42 +885,69 @@ select:focus-visible {
     background: #f59e0b;
 }
 
+.progress-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background: #ddd;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 0 auto 25px auto;
+}
+
+.progress-bar {
+    background: #fbbf24;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.toast-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #111;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    min-width: 280px;
+}
+
+.toast-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-icon {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.toast-icon img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.toast-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
 /*------------------------Edit pagina---------------------*/
-.oil-drip {
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 100px;
-    background: black;
-    border-radius: 50%;
-    filter: blur(2px);
-    animation: drip 3s infinite ease-in;
-}
 
-.oil-drip::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: black;
-    border-radius: 50%;
-}
-
-@keyframes drip {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(300px);
-        opacity: 0;
-    }
-}
 .edit-car-wrapper {
     position: relative;
     overflow: hidden;

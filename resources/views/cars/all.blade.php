@@ -34,6 +34,34 @@
 
 </div>
 
+<div class="mt-6">
+    {{ $cars->links() }}
+</div>
+
+<div class="mt-6">
+    {{ $cars->links() }}
+</div>
+
+<div id="viewToast" class="toast-message">
+    <div class="toast-icon">
+        <img src="{{ asset('img/logo/BuurvrouwAnnie.png') }}" alt="icon">
+    </div>
+
+    <div class="toast-text">
+        <strong>Buurvrouw Annie: Heeft onlangs naar deze auto gekeken</strong>
+    </div>
+</div>
+
+<!-------Zelf gemaakte javascript 😏---------->
+<script>
+setTimeout(() => {
+    document
+        .getElementById('viewToast')
+        .classList
+        .add('show');
+}, 10000);
+</script>
+
 @vite('resources/js/all-cars.js')
 
 </x-app-layout>

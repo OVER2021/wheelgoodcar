@@ -23,6 +23,11 @@
         <div class="absolute inset-0 transition-all duration-700"
              :class="show ? 'bg-black/70 backdrop-blur-sm' : 'bg-black/0'"></div>
 
+             <div class="progress-wrapper">
+                <div class="progress-bar" style="width:100%">
+                    Stap 2 van 2
+                </div>
+            </div>
         <div class="relative z-10 flex items-center justify-center">
             <form x-show="show"
                   x-transition:enter="transition ease-out duration-700"

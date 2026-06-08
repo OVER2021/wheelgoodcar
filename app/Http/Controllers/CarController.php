@@ -178,13 +178,13 @@ class CarController extends Controller
         ]);
     }
 
-public function all()
-{
-    $cars = Car::with('tags')
+    public function all()
+    {
+        $cars = Car::with('tags')
         ->whereNull('sold_at')
         ->oldest()
-        ->get();
+        ->paginate(9);
 
-    return view('cars.all', compact('cars'));
-}
-}
+        return view('cars.all', compact('cars'));
+    }
+    }
