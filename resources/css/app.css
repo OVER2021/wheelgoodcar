@@ -925,7 +925,7 @@ select:focus-visible {
 .progress-wrapper {
     width: 100%;
     max-width: 600px;
-    background: #ddd;
+    background: transparent;
     border-radius: 999px;
     overflow: hidden;
     margin: 0 auto 25px auto;
