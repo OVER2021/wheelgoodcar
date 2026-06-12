@@ -94,9 +94,8 @@ class CarController extends Controller
         $car->increment('views');
 
         $cars = Car::with('tags')
-            ->whereNull('sold_at')
-            ->oldest()
-            ->paginate(9);
+        ->oldest()
+        ->paginate(9);
 
         return view('cars.all', [
             'cars' => $cars,

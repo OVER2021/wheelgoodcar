@@ -34,13 +34,11 @@
 
 </div>
 
-<div class="mt-6">
-    {{ $cars->links() }}
-</div>
-
-<div class="mt-6">
-    {{ $cars->links() }}
-</div>
+@if(method_exists($cars, 'links'))
+    <div class="mt-6">
+        {{ $cars->links() }}
+    </div>
+@endif
 
 <div id="viewToast" class="toast-message">
     <div class="toast-icon">
