@@ -1,11 +1,25 @@
 <x-app-layout>
-    <div class="relative min-h-screen py-20 overflow-hidden"
-         x-data="{ show: false }"
-         x-init="setTimeout(() => show = true, 5000)">
+<div class="relative min-h-screen pt-20 overflow-hidden"
+     x-data="{ show: false }"
+     x-init="setTimeout(() => show = true, 5000)">
 
-        <video autoplay muted playsinline class="fixed inset-0 w-full h-full object-cover">
-            <source src="{{ asset('videos/cardealer.mp4') }}" type="video/mp4">
-        </video>
+    <div class="fixed top-0 left-0 w-full z-50 bg-white">
+        <div class="progress-wrapper">
+            <div class="progress-bar" style="width:100%">
+                Stap 2 van 2
+            </div>
+        </div>
+    </div>
+
+        <video autoplay muted playsinline
+           class="absolute inset-0 w-full h-full object-cover object-[center_35%] -z-10">
+        <source src="{{ asset('videos/cardealer.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0 z-0 transition-all duration-700"
+         :class="show ? 'bg-black/70 backdrop-blur-sm' : 'bg-black/0'">
+    </div>
+
 
         <a href="{{ route('dashboard') }}" class="fixed top-4 left-4 text-white z-50">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -23,11 +37,6 @@
         <div class="absolute inset-0 transition-all duration-700"
              :class="show ? 'bg-black/70 backdrop-blur-sm' : 'bg-black/0'"></div>
 
-             <div class="progress-wrapper">
-                <div class="progress-bar" style="width:100%">
-                    Stap 2 van 2
-                </div>
-            </div>
         <div class="relative z-10 flex items-center justify-center">
             <form x-show="show"
                   x-transition:enter="transition ease-out duration-700"
@@ -40,8 +49,8 @@
 
                 @csrf
                 @foreach($tags as $tag)
-    <input type="hidden" name="tags[]" value="{{ $tag }}">
-@endforeach
+                    <input type="hidden" name="tags[]" value="{{ $tag }}">
+                @endforeach
 
                 <h1 class="text-3xl font-bold text-center">
                     Auto plaatsen

@@ -11,7 +11,7 @@
     <div 
     class="all-cars-container"
     id="allCarsApp"
-    data-cars='@json($cars)'
+    data-cars='@json($cars->values())'
     data-current="{{ $current ?? '' }}"
     >
 
